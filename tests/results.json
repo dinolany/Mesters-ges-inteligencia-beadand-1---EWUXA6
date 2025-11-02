@@ -1,0 +1,177 @@
+{
+    "GRAPH_1": {
+        "dfs": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "bfs": [
+            "a",
+            "b",
+            "d"
+        ],
+        "hill-climbing": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "best-first": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "beam": [
+            "a",
+            "b",
+            "d"
+        ],
+        "branch-and-bound": [
+            "a",
+            "c",
+            "d"
+        ],
+        "branch-and-bound-heuristic": [
+            "a",
+            "c",
+            "d"
+        ],
+        "branch-and-bound-extended-set": [
+            "a",
+            "c",
+            "d"
+        ],
+        "A*": [
+            "a",
+            "c",
+            "d"
+        ]
+    },
+    "GRAPH_2": {
+        "dfs": [
+            "S",
+            "A",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+        ],
+        "bfs": [
+            "S",
+            "A",
+            "C",
+            "E",
+            "G"
+        ],
+        "hill-climbing": [
+            "S",
+            "A",
+            "D",
+            "H",
+            "F",
+            "G"
+        ],
+        "best-first": [
+            "S",
+            "A",
+            "D",
+            "E",
+            "G"
+        ],
+        "beam": [
+            "S",
+            "B",
+            "Y",
+            "C",
+            "E",
+            "G"
+        ],
+        "branch-and-bound": [
+            "S",
+            "B",
+            "C",
+            "E",
+            "G"
+        ],
+        "branch-and-bound-extended-set": [
+            "S",
+            "B",
+            "C",
+            "E",
+            "G"
+        ],
+        "branch-and-bound-heuristic": [
+            "S",
+            "B",
+            "C",
+            "E",
+            "G"
+        ],
+        "A*": [
+            "S",
+            "B",
+            "C",
+            "E",
+            "G"
+        ]
+    },
+    "GRAPH_3": {
+        "dfs": [
+            "s",
+            "x",
+            "w",
+            "g"
+        ],
+        "bfs": [
+            "s",
+            "x",
+            "w",
+            "g"
+        ],
+        "hill-climbing": [
+            "s",
+            "y",
+            "w",
+            "g"
+        ],
+        "best-first": [
+            "s",
+            "y",
+            "w",
+            "g"
+        ],
+        "beam": [
+            "s",
+            "y",
+            "w",
+            "g"
+        ],
+        "branch-and-bound": [
+            "s",
+            "x",
+            "w",
+            "g"
+        ],
+        "branch-and-bound-extended-set": [
+            "s",
+            "x",
+            "w",
+            "g"
+        ],
+        "branch-and-bound-heuristic": [
+            "s",
+            "z",
+            "w",
+            "g"
+        ],
+        "A*": [
+            "s",
+            "y",
+            "w",
+            "g"
+        ]
+    }
+}

@@ -1,0 +1,1 @@
+from .algorithm_registry import get_algorithm

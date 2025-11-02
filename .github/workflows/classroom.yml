@@ -1,0 +1,122 @@
+name: Autograding Tests
+on:
+  - push
+  - workflow_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v5
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .[test]
+
+    - name: Depth-First Search
+      id: depth-first-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Depth-First Search
+        command: pytest -k "dfs"
+        timeout: 30
+        max-score: 1
+
+    - name: Breadth-First Search
+      id: breadth-first-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Breadth-First Search
+        command: pytest -k "bfs"
+        timeout: 30
+        max-score: 1
+
+    - name: Hill Climbing Search
+      id: hill-climbing-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Hill Climbing Search
+        command: pytest -k "hill-climbing"
+        timeout: 30
+        max-score: 1
+
+    - name: Best-First Search
+      id: best-first-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Best-First Search
+        command: pytest -k "best-first"
+        timeout: 30
+        max-score: 1
+
+    - name: Beam Search
+      id: beam-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Beam Search
+        command: pytest -k "beam"
+        timeout: 30
+        max-score: 1
+
+    - name: Branch and Bound
+      id: bnb-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Branch and Bound
+        command: pytest -k "branch-and-bound and not heuristic and not extended-set" 
+        timeout: 30
+        max-score: 1
+
+    - name: Branch and Bound Heuristic
+      id: bnb-heuristic-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Branch and Bound Heuristic
+        command: pytest -k "branch-and-bound and heuristic" 
+        timeout: 30
+        max-score: 1
+    
+    - name: Branch and Bound Extended Set
+      id: bnb-extended-set-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing Branch and Bound
+        command: pytest -k "branch-and-bound and extended-set" 
+        timeout: 30
+        max-score: 1
+
+    - name: A*
+      id: astar-search
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Testing A*
+        command: pytest -k "Astar"
+        timeout: 30
+        max-score: 1
+
+    - name: Autograding reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        DEPTH-FIRST-SEARCH_RESULTS: "${{steps.depth-first-search.outputs.result}}"
+        BREADTH-FIRST-SEARCH_RESULTS: "${{steps.breadth-first-search.outputs.result}}"
+        HILL-CLIMBING-SEARCH_RESULTS: "${{steps.hill-climbing-search.outputs.result}}"
+        BEST-FIRST-SEARCH_RESULTS: "${{steps.best-first-search.outputs.result}}"
+        BEAM-SEARCH_RESULTS: "${{steps.beam-search.outputs.result}}"
+        BNB-SEARCH_RESULTS: "${{steps.bnb-search.outputs.result}}"
+        BNB-HEURISTIC-SEARCH_RESULTS: "${{steps.bnb-heuristic-search.outputs.result}}"
+        BNB-EXTENDED-SET-SEARCH_RESULTS: "${{steps.bnb-extended-set-search.outputs.result}}"
+        ASTAR-SEARCH_RESULTS: "${{steps.astar-search.outputs.result}}"
+      with:
+        runners: depth-first-search,breadth-first-search,hill-climbing-search,best-first-search,beam-search,bnb-search,bnb-heuristic-search,bnb-extended-set-search,astar-search

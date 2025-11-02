@@ -1,0 +1,93 @@
+[
+    {
+      "graphId": "GRAPH_1",
+      "description": "Simple graph with 0 heuristics",
+      "start": "a",
+      "goal": "d",
+      "nodes": ["a", "b", "c", "d"],
+      "edges": [
+        {"source": "a", "target": "b", "weight": 1},
+        {"source": "a", "target": "c", "weight": 2},
+        {"source": "b", "target": "c", "weight": 3},
+        {"source": "b", "target": "d", "weight": 6},
+        {"source": "c", "target": "d", "weight": 4}
+      ],
+      "heuristic": {"a": 0, "b": 0, "c": 0, "d": 0},
+      "expectedPaths": {
+      	"dfs": "abcd",
+        "bfs": "abd",
+        "hill-climbing": "abcd",
+        "best-first": "abcd",
+        "beam": "abd",
+        "branch-and-bound": "acd",
+        "branch-and-bound-heuristic": "acd",
+        "branch-and-bound-extended-set": "acd",
+        "A*": "acd"
+      }
+    },
+    {
+      "graphId": "GRAPH_2",
+      "description": "Larger graph with consistent heuristics",
+      "start": "S",
+      "goal": "G",
+      "nodes": ["S", "A", "B", "C", "D", "E", "F", "G", "H", "X", "Y"],
+      "edges": [
+        {"source": "S", "target": "A", "weight": 10},
+        {"source": "S", "target": "B", "weight": 4},
+        {"source": "A", "target": "C", "weight": 9},
+        {"source": "A", "target": "D", "weight": 15},
+        {"source": "B", "target": "C", "weight": 8},
+        {"source": "B", "target": "X", "weight": 20},
+        {"source": "B", "target": "Y", "weight": 20},
+        {"source": "C", "target": "D", "weight": 7},
+        {"source": "C", "target": "E", "weight": 9},
+        {"source": "C", "target": "Y", "weight": 20},
+        {"source": "D", "target": "E", "weight": 7},
+        {"source": "D", "target": "H", "weight": 6},
+        {"source": "E", "target": "F", "weight": 8},
+        {"source": "E", "target": "G", "weight": 5},
+        {"source": "F", "target": "G", "weight": 10},
+        {"source": "F", "target": "H", "weight": 6}
+      ],
+      "heuristic": {"S": 25, "A": 20, "B": 22, "C": 14, "D": 8, "E": 3, "F": 9, "G": 0, "H": 2, "X": 0, "Y": 0},
+      "expectedPaths": {
+        "dfs": "SACDEFG",
+        "bfs": "SACEG",
+        "hill-climbing": "SADHFG",
+        "best-first": "SADEG",
+        "beam": "SBYCEG",
+        "branch-and-bound": "SBCEG",
+        "branch-and-bound-extended-set": "SBCEG",
+        "branch-and-bound-heuristic": "SBCEG",
+        "A*": "SBCEG"
+      }
+    },
+    {
+      "graphId": "GRAPH_3",
+      "description": "Simple graph with inconsistent heuristics",
+      "start": "s",
+      "goal": "g",
+      "nodes": ["s", "x", "y", "z", "w", "g"],
+      "edges": [
+        {"source": "s", "target": "x", "weight": 1},
+        {"source": "s", "target": "y", "weight": 2},
+        {"source": "s", "target": "z", "weight": 3},
+        {"source": "x", "target": "w", "weight": 1},
+        {"source": "y", "target": "w", "weight": 3},
+        {"source": "z", "target": "w", "weight": 1},
+        {"source": "w", "target": "g", "weight": 3}
+      ],
+      "heuristic": {"s": 0, "x": 8, "y": 1, "z": 4, "w": 1, "g": 0},
+      "expectedPaths": {
+        "dfs": "sxwg",
+        "bfs": "sxwg",
+        "hill-climbing": "sywg",
+        "best-first": "sywg",
+        "beam": "sywg",
+        "branch-and-bound": "sxwg",
+        "branch-and-bound-extended-set": "sxwg",
+        "branch-and-bound-heuristic": "szwg",
+        "A*": "sywg"
+      }
+    }
+  ]
