@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: graph_search
+Version: 0.1.0
+Summary: Graph search algorithms and tests for educational use
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/_vaE_KvJ)
+# Mesterséges Intelligencia Alapok Első Beadandó
+
+**A táblázat kitöltése kötelező:**
+
+|                     |                    |
+| ------------------- | ------------------ |
+| Név                 | Hakapeszi Maki     |
+| Neptun              | MAKI65             |
+| Eltöltött idő (óra) | 3.14               |
+| Mi volt éredekes?   | Minden             |
+| Mi volt unalmas?    | Semmi              |
+| Mi volt nehéz?      | Az intézetigazgató |
+
+A feladat leírása a [feladat.pdf](./fealdat.pdf) fájlban.
+Prompt, válasz leírása a [PROMPTS.md](./PROMPTS.md) fájlba írandó.
